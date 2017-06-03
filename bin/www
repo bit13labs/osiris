@@ -17,9 +17,9 @@ const app = require('../server');
 const debug = require('debug')('glucose-info:server');
 const http = require('http');
 
-const SerialPort = require('serialport');
-const parser = require('../lib/gcode/parser');
-
+// const SerialPort = require('serialport');
+// const parser = require('../lib/gcode/parser');
+const Communication = require('../lib/printer/communication');
 
 /**
  * Get port from environment and store in Express.
@@ -80,6 +80,7 @@ function onError(error) {
       throw error;
   }
 }
+
 /**
  * Event listener for HTTP server "listening" event.
  */
@@ -89,27 +90,9 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
-console.log(config);
-
-	let port = new SerialPort(config.serial.port, {
+	let comm = new Communication();
+	comm.open(config.serial.port, {
 		autoOpen: true,
-		baudRate: config.serial.baudRate,
-		parser: SerialPort.parsers.readline("\n")
-	});
-
-	// the open event will always be emitted
-	port.on('open', function() {
-		console.log("open");
-	});
-
-	port.on('data', function(data) {
-		let pdata = parser.parse(data);
-		if(pdata) {
-			console.log(pdata);
-		}
-	});
-
-	port.on('error', function(err) {
-		console.log('Error: ', err.message);
+		baudRate: config.serial.baudRate
 	});
 }
