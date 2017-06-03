@@ -1,0 +1,19 @@
+{{#section 'head'}}
+{{/section}}
+
+
+{{#with data}}
+<h1>PORTS</h1>
+	{{#each this}}
+		<h3>{{comName}}</h1>
+		<div>manufacturer: {{manufacturer}}</div>
+		<div>serialNumber: {{serialNumber}}</div>
+		<div>pnpId: {{pnpId}}</div>
+		<div>vendorId: {{vendorId}}</div>
+		<div>productId: {{productId}}</div>
+	{{/each}}
+{{/with}}
+
+
+{{#section 'scripts'}}
+{{/section}}
