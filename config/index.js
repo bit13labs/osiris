@@ -26,7 +26,7 @@ let _processPath = (p) => {
 					let name = file.substring(0, file.lastIndexOf('.'));
 					let p1 = deepPath.length > 0 ? `${deepPath}/` : "";
 
-					// console.log(`${p1}${name}`);
+					console.log(`${p1}${name}`);
 					try {
 						console.log(`${scan_path}${p1}${name}`);
 						let req_config = require(`${scan_path}${p1}${name}`);
@@ -44,5 +44,4 @@ let _processPath = (p) => {
 
 
 _processPath(normalizedPath);
-console.log(config_base);
 module.exports = config_base;

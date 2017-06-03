@@ -89,11 +89,11 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
+console.log(config);
 
-
-	let port = new SerialPort('COM4', {
+	let port = new SerialPort(config.serial.port, {
 		autoOpen: true,
-		baudRate: 250000,
+		baudRate: config.serial.baudRate,
 		parser: SerialPort.parsers.readline("\n")
 	});
 
