@@ -4,7 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('./home.config');
+const config = require('./files.config');
 const merge = require('merge');
 
 router.get("/", (req, res, next) => {

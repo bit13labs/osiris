@@ -2,7 +2,7 @@
 // http://docs.octoprint.org/en/master/api/system.html
 const express = require('express');
 const router = express.Router();
-const config = require('./home.config');
+const config = require('./system.config');
 const merge = require('merge');
 
 router.get("/commands", (req, res, next) => {

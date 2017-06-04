@@ -1,18 +1,22 @@
 'use strict';
 
-// http://docs.octoprint.org/en/master/api/connection.html
+// http://docs.octoprint.org/en/master/api/job.html
 
 const express = require('express');
 const router = express.Router();
-const config = require('./connection.config');
+const config = require('./languages.config');
 const merge = require('merge');
 
 router.get("/", (req, res, next) => {
-	res.json( { } );
+	res.json( {  } );
 });
 
 router.post("/", (req, res, next) => {
-	res.json( { } );
+	res.json( {  } );
+});
+
+router.delete("/:locale/:pack", (req, res, next) => {
+	res.json( {  } );
 });
 
 module.exports = router;

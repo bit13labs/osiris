@@ -2,7 +2,7 @@
 // http://docs.octoprint.org/en/master/api/slicing.html
 const express = require('express');
 const router = express.Router();
-const config = require('./home.config');
+const config = require('./slicing.config');
 const merge = require('merge');
 
 router.get("/", (req, res, next) => {

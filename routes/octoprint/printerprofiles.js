@@ -3,7 +3,7 @@
 // http://docs.octoprint.org/en/master/api/printerprofiles.html
 const express = require('express');
 const router = express.Router();
-const config = require('./home.config');
+const config = require('./pritnerprofiles.config');
 const merge = require('merge');
 
 router.get("/", (req, res, next) => {
