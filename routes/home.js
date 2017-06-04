@@ -18,7 +18,7 @@ router.get("/", (req, res, next) => {
 	//   // });
 	// });
 
-	
+	return res.render("index", { data: []})
 
 });
 

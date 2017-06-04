@@ -3,6 +3,14 @@ let _supports = (name) => {
 	return _printer.capabilities[name] !== undefined && _printer.capabilities[name] !== null &&
 		_printer.capabilities[name] === 1;
 };
+
+
+let _recordHistory = (temp) => {
+	_printer.temperature.splice(0,0,temp);
+	// 0 = current, 1 - 26 = history
+	_printer.temperature = _printer.temperature.slice(0, 26);
+};
+
 let _capabilities = {
 	EEPROM: null,
 	AUTOREPORT_TEMP: null,
@@ -13,6 +21,7 @@ let _capabilities = {
 	TOGGLE_LIGHTS: null,
 	EMERGENCY_PARSER: null
 };
+
 let _printer = {
 	FIRMWARE_NAME: "Unknown",
 	SOURCE_CODE_URL: null,
@@ -20,9 +29,13 @@ let _printer = {
 	MACHINE_TYPE: "RepRap",
 	EXTRUDER_COUNT: 0,
 	UUID: '00000000-0000-0000-0000-000000000000',
+	// empty history
+	temperature: [],
 	supports: _supports,
+	recordHistory: _recordHistory,
 	capabilities: _capabilities
 };
+
 
 module.exports = {
 	printer : _printer,

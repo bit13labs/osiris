@@ -1,11 +1,11 @@
 'use strict';
 
-const xconfig = require('../config');
+const xconfig = require('../../config');
 const merge = require('merge');
 
 let config = {
-	"home": {
-		route: '/'
+	"api/printer": {
+		route: '/api/v1/printer'
 	}
 };
 

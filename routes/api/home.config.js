@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	"api/home": {
-		route: '/api'
+		route: ['/api/v1']
 	}
 };
 

@@ -3,10 +3,11 @@ const express = require('express');
 const router = express.Router();
 const config = require('./home.config');
 const merge = require('merge');
+const semver = require('semver');
 
-
-router.get("/capabilities", (req, res, next) => {
-	res.json( config.printer );
+router.get("/version", (req, res, next) => {
+	let m = semver.major(config.package.version);
+	res.json( { server: config.package.version, api: `${m}` } );
 })
 
 module.exports = router;
