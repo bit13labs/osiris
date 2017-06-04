@@ -1,11 +1,11 @@
 'use strict';
 
-const xconfig = require('../config');
+const xconfig = require('../../config');
 const merge = require('merge');
 
 let config = {
-	"api/home": {
-		route: '/api'
+	"octoprint/printer": {
+		route: '/api/printer'
 	}
 };
 
