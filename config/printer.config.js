@@ -8,7 +8,7 @@ let _supports = (name) => {
 let _recordHistory = (temp) => {
 	_printer.temperature.splice(0,0,temp);
 	// 0 = current, 1 - 26 = history
-	_printer.temperature = _printer.temperature.slice(0, 26);
+	_printer.temperature = _printer.temperature.slice(0, _printer.MAX_HISTORY + 1);
 };
 
 let _capabilities = {
@@ -29,6 +29,7 @@ let _printer = {
 	MACHINE_TYPE: "RepRap",
 	EXTRUDER_COUNT: 0,
 	UUID: '00000000-0000-0000-0000-000000000000',
+	MAX_HISTORY: 25,
 	// empty history
 	temperature: [],
 	supports: _supports,
