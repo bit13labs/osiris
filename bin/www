@@ -19,7 +19,7 @@ const http = require('http');
 
 // const SerialPort = require('serialport');
 // const parser = require('../lib/gcode/parser');
-const Communication = require('../lib/printer/communication');
+const communication = require('../lib/printer/communication');
 
 /**
  * Get port from environment and store in Express.
@@ -90,8 +90,7 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
-	let comm = new Communication();
-	comm.open(config.serial.port, {
+	communication.open(config.serial.port, {
 		autoOpen: true,
 		baudRate: config.serial.baudRate
 	});
