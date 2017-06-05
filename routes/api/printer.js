@@ -14,7 +14,6 @@ router.get("/", (req, res, next) => {
 		return res.json({ temperature: { } });
 	}
 	let all = config.printer.temperature.slice(0);
-	console.log(all);
 	let current = all[0];
 	let history = all.slice(1);
 

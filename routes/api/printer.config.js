@@ -5,7 +5,7 @@ const merge = require('merge');
 
 let config = {
 	"api/printer": {
-		route: '/api/v1/printer'
+		route: ['/api/v1/printer', '/api/printer']
 	}
 };
 
