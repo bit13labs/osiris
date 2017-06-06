@@ -85,8 +85,13 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-//import VirtualPrinter from '../lib/printer/virtual'
+import VirtualPrinter from '../lib/printer/virtual'
 import SerialPrinter from '../lib/printer/serial'
+
+// Register class with DI container under 'printer' name
+config.container.service('printer', VirtualPrinter)
+
+
 function onListening() {
   let addr = server.address();
   let bind = typeof addr === 'string'
