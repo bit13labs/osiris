@@ -85,11 +85,23 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
+import HomeCommand from '../lib/printer/commands/home.command'
 import VirtualPrinter from '../lib/printer/virtual'
 import SerialPrinter from '../lib/printer/serial'
+import winston from 'winston'
 
 // Register class with DI container under 'printer' name
 config.container.service('printer', VirtualPrinter)
+config.container.service('logger', () => {
+  var logger = new (winston.Logger)({
+    transports: [
+      new (winston.transports.Console)({
+        level: 'silly'
+      })
+    ]
+  })
+  return logger;
+})
 
 
 function onListening() {
@@ -103,5 +115,10 @@ function onListening() {
 	//	baudRate: config.serial.baudRate
 	//});
 
-  let printer = new SerialPrinter({ autoOpen: true });
+  let cmd = new HomeCommand();
+  cmd.execute().then(
+    () => { console.log('Success') },
+    (err) => { console.log(err) }
+  )
+  //let printer = new SerialPrinter({ autoOpen: true });
 }

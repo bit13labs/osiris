@@ -55,7 +55,10 @@ class Container {
 	}
 
 	resolve(name, ...args) {
-		return new this.components[name](args)
+		if (this.components[name]) {
+			return new this.components[name](...args)
+		}
+		return null
 	}
 
 	list() {
