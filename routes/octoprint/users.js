@@ -2,8 +2,7 @@
 // http://docs.octoprint.org/en/master/api/users.html
 const express = require('express');
 const router = express.Router();
-const config = require('./users.config');
-const merge = require('merge');
+// const config = require('./users.config');
 
 router.get("/", (req, res, next) => {
 	res.json( [] );

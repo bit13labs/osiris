@@ -4,8 +4,7 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const request = require('request');
-const config = require('./util.config');
-const merge = require('merge');
+
 /**
  * Provides commands to test paths or URLs for correctness.
  * @body {*} command: path, url
@@ -44,7 +43,7 @@ router.post("/", (req, res, next) => {
 			let check_access = req.body.check_access || [ 'r', 'w', 'x' ];
 			let accessFlags = fs.constants.F_OK | (check_access.indexOf('r') ? fs.constants.R_OK : 0)  | (check_access.indexOf('w') ? fs.constants.W_OK : 0) | (check_access.indexOf('x') ? fs.constants.X_OK : 0);
 			fs.stat(path, (err,stat) => {
-				let exists = false
+				let exists = false;
 				if(!err) {
 					exists = true;
 				}
@@ -75,7 +74,7 @@ router.post("/", (req, res, next) => {
 				normal: [100, 399],
 				error: [400, 599],
 				any: [100, 999]
-			}
+			};
 
 			let url = req.body.url;
 			let method = (req.body.method || "HEAD").toLowerCase();
@@ -84,13 +83,11 @@ router.post("/", (req, res, next) => {
 			request[method](url, (err, resp, b) => {
 				let checkStatus = [];
 				let returnResponse = req.body.response || false;
-				console.log(typeof(status));
 				if(typeof(status) === "string") {
 					for(let x = respCodes[status][0]; x < respCodes[status][1]; ++x) {
 						checkStatus.push(x);
 					}
 				} else if (typeof(status) === "number") {
-					console.log("status: " + status)
 					checkStatus.push(status);
 				} else if ( Array.isArray(status) ){
 					checkStatus = status;
@@ -119,12 +116,12 @@ router.post("/", (req, res, next) => {
 					return res.json({
 						url: url,
 						status: resp.statusCode,
-						result: checkStatus.indexOf(resp.statusCode) >= 0,
+						result: checkStatus.indexOf(resp.statusCode) >= 0
 					});
 				}
 			});
 			break;
-	};
+	}
 
 });
 

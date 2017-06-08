@@ -4,8 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('./files.config');
-const merge = require('merge');
+// const config = require('./files.config');
 
 router.get("/", (req, res, next) => {
 	res.json( { files: [] } );
@@ -35,6 +34,6 @@ router.delete("/:location/:filename", (req, res, next) => {
 	// this should do the work...
 	// then send 204 on success
 	res.status(204).send();
-})
+});
 
 module.exports = router;

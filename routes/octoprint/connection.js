@@ -4,8 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('./connection.config');
-const merge = require('merge');
+// const config = require('./connection.config');
 
 router.get("/", (req, res, next) => {
 	res.json( { } );

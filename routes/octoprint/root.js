@@ -5,7 +5,6 @@
 const express = require('express');
 const router = express.Router();
 const config = require('./root.config');
-const merge = require('merge');
 
 router.get("/version", (req, res, next) => {
 	res.json( {

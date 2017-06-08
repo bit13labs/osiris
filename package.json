@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "exec": "nodemon ./bin/www",
-    "test": "jshint **/*.js --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover --include-all-sources jasmine "
+    "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover --include-all-sources jasmine "
   },
   "author": "Bit13 Labs",
   "license": "Apache 2.0",

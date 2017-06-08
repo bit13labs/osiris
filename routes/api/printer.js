@@ -2,7 +2,6 @@
 const express = require('express');
 const router = express.Router();
 const config = require('./printer.config');
-const merge = require('merge');
 
 
 router.get("/capabilities", (req, res, next) => {
