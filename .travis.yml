@@ -1,8 +1,8 @@
 install:
-- npm install -g codecov jasmine
+- npm install -g codecov jasmine istanbul
 script:
-- JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover jasmine-node --captureExceptions
-  tests/unit
+- istanbul cover jasmine-node --captureExceptions
+  tests/unit JASMINE_CONFIG_PATH=tests/unit/.jasmine.json
 - "codecov"
 env:
   CODECOV_TOKEN:
