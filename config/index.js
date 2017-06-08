@@ -1,8 +1,4 @@
 'use strict';
-const debug = require('debug')('reviewbot:bot');
-// this should be removed at some point, once all configs are moved.
-const Promise = require('promise');
-const async = require('async');
 const fs = require('fs');
 const path = require('path');
 const npmpackage = require('../package.json');

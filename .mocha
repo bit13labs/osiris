@@ -1,0 +1,6 @@
+--reporter list
+--globals nodejs
+--colors
+--async
+--use_strict
+--recursive

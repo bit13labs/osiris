@@ -7,4 +7,4 @@ module.exports = {
 		// is this the right place for this?
 		forceM105: false
 	}
-}
+};

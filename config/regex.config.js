@@ -20,4 +20,4 @@ module.exports = {
 		"BUSY": /^(?:echo:)busy:\s?(.*)$/,
 		"ERROR": /^(?:echo:)?(?:Error:)(.*$)/i
 	}
-}
+};
