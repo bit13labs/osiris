@@ -1,11 +1,16 @@
 language: node_js
 node_js:
   - "6"
-
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      dist: xenial
 install:
-- npm install -g codecov jasmine istanbul
+  - npm install -g npm -u
+  - npm install -g codecov jasmine istanbul
 script:
-- jshint . --verbose
-- eslint .
-- export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover jasmine
-- codecov
+  - jshint . --verbose
+  - eslint .
+  - export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover jasmine
+  - codecov
