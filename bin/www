@@ -114,7 +114,7 @@ function onListening() {
 	//	autoOpen: true,
 	//	baudRate: config.serial.baudRate
 	//});
-
+  
   let cmd = new HomeCommand();
   cmd.execute().then(
     () => { console.log('Success') },
