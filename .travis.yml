@@ -5,5 +5,7 @@ node_js:
 install:
 - npm install -g codecov jasmine istanbul
 script:
-- export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover --include-all-sources -x *.config.js jasmine
-- "codecov"
+- jshint . --verbose
+- eslint .
+- export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover jasmine
+- codecov
