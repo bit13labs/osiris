@@ -38,4 +38,30 @@ let _processPath = (p) => {
 
 
 _processPath(normalizedPath);
+
+
+// Very naive implementation of DI container
+class Container {
+
+	constructor() {
+		this.components = {};
+	}
+	service(name, obj) {
+		this.components[name] = obj;
+	}
+
+	resolve(name, ...args) {
+		if (this.components[name]) {
+			return new this.components[name](...args);
+		}
+		return null;
+	}
+
+	list() {
+		return Object.keys(this.components);
+	}
+}
+
+config_base.container = new Container();
+
 module.exports = config_base;
