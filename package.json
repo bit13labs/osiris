@@ -6,8 +6,8 @@
   "scripts": {
     "start": "node ./bin/www",
     "exec": "nodemon ./bin/www",
-    "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover --include-all-sources jasmine",
-    "cover": "JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover --include-all-sources jasmine && codecov"
+    "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover jasmine",
+    "cover": "JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover jasmine && codecov"
   },
   "author": "Bit13 Labs",
   "license": "Apache 2.0",
@@ -29,7 +29,7 @@
     "promise": "^7.1.1",
     "request": "^2.81.0",
     "semver": "^5.3.0",
-    "serialport": "^4.0.7",
+    "serialport": "^v5.0.0-beta3",
     "serve-favicon": "^2.4.3",
     "uuid": "^3.0.1"
   },

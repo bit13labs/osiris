@@ -3,6 +3,13 @@ const root = '../../../..';
 const events = require(`${root}/lib/printer/events.js`);
 
 describe("/lib/printer/events.js => _fire()", () => {
+	describe("when there are no registered event handlers", () => {
+		it("should exit gracefully", (done) => {
+			events._fire("M1234", "start", null);
+			expect(events._events.M1234).toBe(null || undefined);
+			done();
+		});
+	});
 	describe("when there are registered event handlers", () => {
 		it("must trigger all registered event handlers", (done) => {
 			let eventStart = 0;
