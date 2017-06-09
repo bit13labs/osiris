@@ -5,7 +5,7 @@ matrix:
   include:
     - os: linux
       sudo: required
-      dist: xenial
+      dist: trusty
 install:
   - npm install -g npm -u
   - npm install -g codecov jasmine istanbul
