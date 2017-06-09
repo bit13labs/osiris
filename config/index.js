@@ -47,21 +47,21 @@ class Container {
 		this.components = {};
 	}
 	service(name, obj) {
-		this.components[name] = obj
+		this.components[name] = obj;
 	}
 
 	resolve(name, ...args) {
 		if (this.components[name]) {
-			return new this.components[name](...args)
+			return new this.components[name](...args);
 		}
-		return null
+		return null;
 	}
 
 	list() {
-		return Object.keys(this.components)
+		return Object.keys(this.components);
 	}
 }
 
-config_base.container = new Container()
+config_base.container = new Container();
 
 module.exports = config_base;
