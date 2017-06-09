@@ -34,3 +34,6 @@ npm-debug.log
 
 # coverage folder
 coverage/
+
+# npm package lock
+package-lock.json
