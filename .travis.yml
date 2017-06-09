@@ -9,8 +9,9 @@ matrix:
 install:
   - npm install -g npm -u
   - npm install -g codecov jasmine istanbul
+  - npm install
 script:
-  - jshint . --verbose
-  - eslint .
+  - $(npm bin)/jshint . --verbose
+  - $(npm bin)/eslint .
   - export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover jasmine
   - codecov
