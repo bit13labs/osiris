@@ -27,52 +27,57 @@ describe("/lib/printer/virtual/index.js => new()", () => {
   describe("when creating VirtualPrinter with options", () => {
     it("must not be null or undefined when options are empty", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: {} });
+      let printer = new VirtualPrinter({});
       expect(printer).not.toBe(null || undefined);
       done();
     });
     it("must not be connected when options are empty", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: {} });
+      let printer = new VirtualPrinter({});
+      expect(printer).not.toBe(null || undefined);
       expect(printer.isConnected).toBe(false);
       done();
     });
     it("must not be null or undefined when options have bogus keys", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { foo: "bar" }}, { foo: 'bar'});
+      let printer = new VirtualPrinter({ foo: 'bar'});
       expect(printer).not.toBe(null || undefined);
       done();
     });
     it("must not be connected when options have bogus keys", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { foo: "bar" }}, { foo: 'bar'});
+      let printer = new VirtualPrinter({ foo: 'bar'});
+      expect(printer).not.toBe(null || undefined);
       expect(printer.isConnected).toBe(false);
       done();
     });
     it("must not be null or undefined when options contain autoOpen", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { autoOpen: true }});
+      let printer = new VirtualPrinter({ autoOpen: true });
       expect(printer).not.toBe(null || undefined);
       done();
     });
     it("must be connected when options.autoOpen = true", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { autoOpen: true }});
+      let printer = new VirtualPrinter({ autoOpen: true });
+      expect(printer).not.toBe(null || undefined);
       expect(printer.isConnected).toBe(true);
       done();
     });
     it("must not be connected when options.autoOpen = false", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { autoOpen: false }});
+      let printer = new VirtualPrinter({ autoOpen: false });
+      expect(printer).not.toBe(null || undefined);
       expect(printer.isConnected).toBe(false);
       done();
     });
     it("must have logger injected", (done) => {
       config.app.connected = false;
-      let printer = new VirtualPrinter({ options: { autoOpen: false }});
+      let printer = new VirtualPrinter({ autoOpen: false });
+      expect(printer).not.toBe(null || undefined);
       expect(printer.logger).not.toBe(null || undefined);
       done();
-    })
+    });
   });
 });
 /* jshint ignore:end */
