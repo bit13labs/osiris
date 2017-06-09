@@ -6,8 +6,8 @@
   "scripts": {
     "start": "$(npm bin)/babel-node ./bin/www",
     "exec": "nodemon ./bin/www --exec $(npm bin)/babel-node",
-    "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover jasmine",
-    "cover": "JASMINE_CONFIG_PATH=tests/unit/.jasmine.json istanbul cover jasmine && codecov"
+    "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json $(npm bin)/babel-node $(npm bin)/istanbul cover $(npm bin)/babel-node $(npm bin)/jasmine",
+    "cover": "JASMINE_CONFIG_PATH=./tests/unit/.jasmine.json $(npm bin)/babel-node $(npm bin)/istanbul cover $(npm bin)/babel-node $(npm bin)/jasmine && $(npm bin)/babel-node codecov"
   },
   "author": "Bit13 Labs",
   "license": "Apache 2.0",
@@ -36,6 +36,7 @@
     "express": "^4.15.3",
     "express-session": "^1.15.3",
     "hbs": "^4.0.1",
+    "jasmine": "^2.6.0",
     "lodash": "^4.17.4",
     "merge": "^1.2.0",
     "morgan": "^1.8.2",
