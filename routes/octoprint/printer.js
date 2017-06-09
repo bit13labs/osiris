@@ -3,9 +3,8 @@
 //http://docs.octoprint.org/en/master/api/printer.html
 const express = require('express');
 const router = express.Router();
-const config = require('./printer.config');
-const merge = require('merge');
-const events = require('../../lib/printer/events');
+// const config = require('./printer.config');
+// const events = require('../../lib/printer/events');
 const communication = require('../../lib/printer/communication');
 
 router.post("/printhead", (req, res, next) => {

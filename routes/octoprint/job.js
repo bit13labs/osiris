@@ -4,8 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('./job.config');
-const merge = require('merge');
+// const config = require('./job.config');
 
 router.post("/", (req, res, next) => {
 	res.json( {  } );

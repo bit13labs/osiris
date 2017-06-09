@@ -2,8 +2,7 @@
 // http://docs.octoprint.org/en/master/api/settings.html
 const express = require('express');
 const router = express.Router();
-const config = require('./settings.config');
-const merge = require('merge');
+// const config = require('./settings.config');
 
 router.get("/", (req, res, next) => {
 	res.json( { } );

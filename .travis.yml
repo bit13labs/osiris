@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+  - "6"
+matrix:
+  include:
+    - os: linux
+      sudo: required
+      dist: trusty
+install:
+  - npm install -g npm -u
+  - npm --version
+  - npm install -g codecov jasmine istanbul
+  - npm install
+script:
+  - $(npm bin)/jshint . --verbose
+  - $(npm bin)/eslint .
+  - export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && istanbul cover jasmine
+  - codecov

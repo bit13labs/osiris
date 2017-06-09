@@ -4,8 +4,7 @@
 
 const express = require('express');
 const router = express.Router();
-const config = require('./apps.config');
-const merge = require('merge');
+// const config = require('./apps.config');
 
 router.get("/", (req, res, next) => {
 	res.json( { } );

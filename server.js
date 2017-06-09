@@ -1,6 +1,6 @@
+'use strict';
 const express = require('express');
 const path = require('path');
-const favicon = require('serve-favicon');
 const logger = require('morgan');
 const cookieParser = require('cookie-parser');
 const bodyParser = require('body-parser');
@@ -9,9 +9,6 @@ const bodyParser = require('body-parser');
 const passport = require('passport');
 const flash = require('connect-flash');
 const session = require('express-session');
-const communication = require('./lib/printer/communication');
-
-
 
 const app = express();
 // view engine setup
@@ -46,10 +43,10 @@ require('./routes')(app);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
-  var err = new Error('Page Not Found');
+  let err = new Error('Page Not Found');
   err.status = 404;
   res.status(404);
-  res.locals.message = err.message
+  res.locals.message = err.message;
   res.render('404', {title: err.status});
 });
 

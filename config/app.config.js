@@ -5,4 +5,4 @@ module.exports = {
 		ready: false,
 		connected: false
 	}
-}
+};

@@ -2,8 +2,7 @@
 // http://docs.octoprint.org/en/master/api/timelapse.html
 const express = require('express');
 const router = express.Router();
-const config = require('./timelapse.config');
-const merge = require('merge');
+// const config = require('./timelapse.config');
 
 router.get("/", (req, res, next) => {
 	res.json( [] );
