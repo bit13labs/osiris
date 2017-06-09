@@ -8,6 +8,7 @@ matrix:
       dist: trusty
 install:
   - npm install -g npm -u
+  - npm --version
   - npm install -g codecov jasmine istanbul
   - npm install
 script:
