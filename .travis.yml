@@ -15,3 +15,4 @@ script:
   - $(npm bin)/jshint . --verbose
   - $(npm bin)/eslint .
   - export JASMINE_CONFIG_PATH=tests/unit/.jasmine.json && $(npm bin)/babel-node $(npm bin)/istanbul cover $(npm bin)/babel-node $(npm bin)/jasmine
+  - $(npm bin)/babel-node $(npm bin)/codecov
