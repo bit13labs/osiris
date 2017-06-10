@@ -2,8 +2,8 @@
 
 // Need to bootstrap DI quick hack probably should be mocked
 
-import config from '../../../config';
-import VirtualPrinter from '../../../lib/printer/virtual';
+import config from 'config';
+import VirtualPrinter from 'lib/printer/virtual';
 import winston from 'winston';
 
 // Register class with DI container under 'printer' name
