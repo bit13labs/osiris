@@ -1,6 +1,6 @@
 'use strict';
 
-import Command from "../../../lib/command";
+import Command from "lib/command";
 
 describe("/lib/command.js => new()", () => {
   describe("when creating Command", () => {

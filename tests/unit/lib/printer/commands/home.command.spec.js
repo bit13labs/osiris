@@ -1,8 +1,8 @@
 'use strict';
 /* jshint ignore:start */
-import HomeCommand from "../../../../../lib/printer/commands/home.command";
-import config from "../../../../../config";
-import container from '../../container.init';
+import HomeCommand from "lib/printer/commands/home.command";
+import config from "config";
+import container from 'test/lib/container.init';
 
 describe("/lib/printer/commands/home.command.js => new()", () => {
   describe("when creating HomeCommand without options", () => {

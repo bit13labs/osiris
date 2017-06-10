@@ -1,6 +1,6 @@
 'use strict';
 
-import Printer from "../../../../lib/printer/printer";
+import Printer from "lib/printer/printer";
 
 describe("/lib/printer/printer.js => new()", () => {
   describe("when creating Printer", () => {
