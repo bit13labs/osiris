@@ -14,12 +14,10 @@ const config = require('../config');
  * Module dependencies.
  */
 const app = require('../server');
-const debug = require('debug')('glucose-info:server');
+const debug = require('debug')('osiris:server');
 const http = require('http');
 
-// const SerialPort = require('serialport');
-// const parser = require('../lib/gcode/parser');
-//const communication = require('../lib/printer/communication');
+const communication = require('../lib/printer/communication');
 
 /**
  * Get port from environment and store in Express.
@@ -85,23 +83,23 @@ function onError(error) {
  * Event listener for HTTP server "listening" event.
  */
 
-import HomeCommand from '../lib/printer/commands/home.command'
-import VirtualPrinter from '../lib/printer/virtual'
-import SerialPrinter from '../lib/printer/serial'
-import winston from 'winston'
-
-// Register class with DI container under 'printer' name
-config.container.service('printer', VirtualPrinter)
-config.container.service('logger', () => {
-  var logger = new (winston.Logger)({
-    transports: [
-      new (winston.transports.Console)({
-        level: 'silly'
-      })
-    ]
-  })
-  return logger;
-})
+// import HomeCommand from '../lib/printer/commands/home.command'
+// import VirtualPrinter from '../lib/printer/virtual'
+// import SerialPrinter from '../lib/printer/serial'
+// import winston from 'winston'
+//
+// // Register class with DI container under 'printer' name
+// config.container.service('printer', SerialPrinter)
+// config.container.service('logger', () => {
+//   var logger = new (winston.Logger)({
+//     transports: [
+//       new (winston.transports.Console)({
+//         level: 'silly'
+//       })
+//     ]
+//   })
+//   return logger;
+// })
 
 
 function onListening() {
@@ -110,15 +108,10 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
 
-	//communication.open(config.serial.port, {
-	//	autoOpen: true,
-	//	baudRate: config.serial.baudRate
-	//});
-  
-  let cmd = new HomeCommand();
-  cmd.execute().then(
-    () => { console.log('Success') },
-    (err) => { console.log(err) }
-  )
-  //let printer = new SerialPrinter({ autoOpen: true });
+
+
+		communication.open(config.serial.port, {
+			autoOpen: true,
+			baudRate: config.serial.baudRate
+		});
 }

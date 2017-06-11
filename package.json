@@ -5,9 +5,16 @@
   "main": "server.js",
   "scripts": {
     "start": "$(npm bin)/babel-node ./bin/www",
-    "exec": "nodemon ./bin/www --exec $(npm bin)/babel-node",
+    "exec": "nodemon ./bin/www --exec babel-node",
     "test": "jshint . --verbose && eslint . && JASMINE_CONFIG_PATH=tests/unit/.jasmine.json $(npm bin)/babel-node $(npm bin)/babel-istanbul cover $(npm bin)/jasmine",
     "cover": "JASMINE_CONFIG_PATH=./tests/unit/.jasmine.json $(npm bin)/babel-node $(npm bin)/babel-istanbul cover $(npm bin)/jasmine && $(npm bin)/codecov"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bit13labs/osiris.git"
+  },
+  "bugs": {
+    "url": "https://github.com/bit13labs/osiris/issues"
   },
   "author": "Bit13 Labs",
   "license": "Apache-2.0",
@@ -47,7 +54,7 @@
     "promise": "^7.1.1",
     "request": "^2.81.0",
     "semver": "^5.3.0",
-    "serialport": "^5.0.0-beta3",
+    "serialport": "^4.0.7",
     "serve-favicon": "^2.4.3",
     "uuid": "^3.0.1",
     "winston": "^2.3.1"
