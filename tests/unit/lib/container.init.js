@@ -2,13 +2,12 @@
 
 // Need to bootstrap DI quick hack probably should be mocked
 
-import config from '../../../config';
-import VirtualPrinter from '../../../lib/printer/virtual';
-import SerialPrinter from '../../../lib/printer/serial';
+import config from 'config';
+import VirtualPrinter from 'lib/printer/virtual';
 import winston from 'winston';
 
 // Register class with DI container under 'printer' name
-config.container.service('printer', SerialPrinter);
+config.container.service('printer', VirtualPrinter);
 config.container.service('logger', () => {
   var logger = new (winston.Logger)({
     transports: [

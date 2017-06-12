@@ -3,9 +3,9 @@
 // Have to splatter config.app.connected = false all over the place due to singleton nature of the object
 
 /* jshint ignore:start */
-import VirtualPrinter from "../../../../../lib/printer/virtual";
-import config from "../../../../../config";
-import container from '../../container.init';
+import VirtualPrinter from "lib/printer/virtual";
+import config from "config";
+import container from 'test/lib/container.init';
 
 describe("/lib/printer/virtual/index.js => new()", () => {
   describe("when creating VirtualPrinter without options", () => {
