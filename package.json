@@ -26,14 +26,18 @@
       "transform-runtime",
       "transform-decorators-legacy",
       "transform-class-properties",
-      ["module-resolver",
-      {
-        "root": [ "./" ],
-        "alias": {
-          "test": "./tests/unit",
-          "underscore": "lodash"
+      [
+        "module-resolver",
+        {
+          "root": [
+            "./"
+          ],
+          "alias": {
+            "test": "./tests/unit",
+            "underscore": "lodash"
+          }
         }
-      }]
+      ]
     ]
   },
   "dependencies": {
